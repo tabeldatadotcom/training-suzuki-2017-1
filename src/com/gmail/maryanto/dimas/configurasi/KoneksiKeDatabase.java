@@ -1,6 +1,7 @@
 package com.gmail.maryanto.dimas.configurasi;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,6 +13,7 @@ import com.gmail.maryanto.dimas.model.Department;
 public class KoneksiKeDatabase {
 
 	public static void main(String[] args) {
+		Integer value = 10;
 		BasicDataSource ds = new BasicDataSource();
 		ds.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 		ds.setUsername("hr");
@@ -22,8 +24,10 @@ public class KoneksiKeDatabase {
 			Connection connection = ds.getConnection();
 			System.out.println("koneksi database berhasil!");
 
-			Statement st = connection.createStatement();
-			ResultSet rs = st.executeQuery("select * from departments");
+			PreparedStatement st = connection.prepareStatement("select * from departments where department_id = ? and department_name = ?");
+			st.setInt(1, value);
+			st.setString(2, "aslkfjaskdl");
+			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				Department d = new Department();
 				d.setDepartmentId(rs.getInt("DEPARTMENT_ID"));
@@ -33,7 +37,6 @@ public class KoneksiKeDatabase {
 				
 				System.out.println(d.toString());
 			}
-			System.out.println("--------------");
 			rs.close();
 			st.close();
 			connection.close();

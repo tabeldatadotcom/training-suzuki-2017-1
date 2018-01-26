@@ -11,12 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MASTER_PRODUK")
+@Table(name = "PRODUK")
 public class Produk {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "data_unique")
 	private Long uniqueId;
 	
 	@Column(name = "kode_produk", unique = true, nullable = false)

@@ -6,16 +6,17 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PRODUK")
+@SequenceGenerator(name = "product_seq", sequenceName = "product_seq")
 public class Produk {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "product_seq")
 	@Column(name = "data_unique")
 	private Long uniqueId;
 	
@@ -34,4 +35,54 @@ public class Produk {
 	@Column(name = "harga_jual")
 	private BigDecimal hargaJual;
 
+	public Long getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(Long uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+
+	public String getKode() {
+		return kode;
+	}
+
+	public void setKode(String kode) {
+		this.kode = kode;
+	}
+
+	public String getNama() {
+		return nama;
+	}
+
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+
+	public Date getTanggalBuat() {
+		return tanggalBuat;
+	}
+
+	public void setTanggalBuat(Date tanggalBuat) {
+		this.tanggalBuat = tanggalBuat;
+	}
+
+	public boolean isAktif() {
+		return aktif;
+	}
+
+	public void setAktif(boolean aktif) {
+		this.aktif = aktif;
+	}
+
+	public BigDecimal getHargaJual() {
+		return hargaJual;
+	}
+
+	public void setHargaJual(BigDecimal hargaJual) {
+		this.hargaJual = hargaJual;
+	}
+
+	
+	
 }

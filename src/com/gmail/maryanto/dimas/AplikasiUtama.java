@@ -15,11 +15,11 @@ public class AplikasiUtama {
 	public static void main(String[] args) {
 		
 		Produk p001 = new Produk();
-		p001.setKode("p001");
-		p001.setNama("Suzuki Ignis");
-		p001.setTanggalBuat(Date.valueOf(LocalDate.now()));
-		p001.setHargaJual(new BigDecimal("130000000"));
-		p001.setAktif(true);
+//		p001.setKode("p001");
+//		p001.setNama("Suzuki Ignis");
+//		p001.setTanggalBuat(Date.valueOf(LocalDate.now()));
+//		p001.setHargaJual(new BigDecimal("130000000"));
+//		p001.setAktif(true);
 		
 		EntityManagerFactory emf = 
 				Persistence.createEntityManagerFactory("contoh");
@@ -27,7 +27,11 @@ public class AplikasiUtama {
 		
 		em.getTransaction().begin();
 		
-		em.persist(p001);
+		p001 = em.find(Produk.class, 1l);
+		p001.setNama("Suzuki ERTIGA");
+		p001.setHargaJual(new BigDecimal("135000000"));
+		
+		em.merge(p001);
 	
 		
 		em.getTransaction().commit();

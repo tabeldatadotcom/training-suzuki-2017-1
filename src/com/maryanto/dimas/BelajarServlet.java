@@ -2,6 +2,7 @@ package com.maryanto.dimas;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +25,16 @@ public class BelajarServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		String nama = req.getParameter("nama");
 		String nik = req.getParameter("nik");
 
-		// http response, digunakan untuk kita (server) mengeluarkan / menghasilkan html
-		resp.getWriter().append("halo nama saya dari method post" + nama + 
-				" dan niknya adalah " + nik);
+		req.setAttribute("outputNama", nama);
+		req.setAttribute("outputNik", nik);
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/pages/info.jsp");
+		rd.forward(req, resp);
+		
 	}
 
 }

@@ -114,23 +114,24 @@ public class NasabahController {
 
 	}
 
-	@DELETE
+	@POST
 	@Path("/remove/{removeParam}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String remove(@PathParam("removeParam") String id) {
+	public String remove(@PathParam("removeParam") String removeParam) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
 		EntityManager em = emf.createEntityManager();
 		
 		Nasabah nasabah = (Nasabah) em.createQuery("select n from Nasabah n where n.cif = :param")
-				.setParameter("param", id).getSingleResult();
+				.setParameter("param", removeParam).getSingleResult();
 		
 		if (nasabah != null) {
 			em.getTransaction().begin();
 			em.remove(nasabah);
 			em.getTransaction().commit();
+			
 			em.close();
 			emf.close();
-			return "Berhasil dihapus";
+			return String.format("Nasabah dengan CIF %s berhasil dihapus", removeParam);
 		} else {
 			return "Tidak ada data yang dihapus";
 		}

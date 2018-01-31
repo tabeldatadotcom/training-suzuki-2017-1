@@ -29,10 +29,10 @@
 			<tr>
 				<td>CIF</td>
 				<td>Nama Lengkap</td>
+				<td>Hapus</td>
 			</tr>
 		</thead>
 		<tbody id="data-nasabah">
-
 		</tbody>
 	</table>
 

@@ -25,7 +25,7 @@ import javax.ws.rs.PUT;
  * @author Dimas Maryanto
  * <phoneNumber>082117355133</phoneNumber>
  * <company>PT. Tabeldata Informatika</company>
- * <jobTitle>Senior Developer | Research and Development</jobTitle>
+ * <jobTitle>Research and Development | Software engineer trainer</jobTitle>
  * <email>engineer.dimmaryanto93@outlook.com</email>
  * 
  */

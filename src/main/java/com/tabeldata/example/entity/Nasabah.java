@@ -1,4 +1,4 @@
-package com.maryanto.dimas.example.entity;
+package com.tabeldata.example.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

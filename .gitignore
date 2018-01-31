@@ -1,0 +1,20 @@
+# eclipse 
+.classpath
+.settings/
+.project
+
+# maven project
+target/
+
+# mac
+.DS_Store
+
+# netbeans
+nb-configuration.xml
+
+# idea
+*.iml
+.idea/
+
+# vim 
+*.swp

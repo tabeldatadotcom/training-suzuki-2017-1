@@ -2,6 +2,7 @@ $('h2').text("Halo dunia");
 
 $(document).ready(function() {
 	console.log("Jquery works");
+	loadData();
 
 	$("form").on("submit", function(event) {
 		event.preventDefault();
@@ -31,17 +32,13 @@ $(document).ready(function() {
 
 function loadData() {
 	$.get("/jaxrs-example/api/nasabah/list", function(data) {
-		console.log(data);
-	}).done(function() {
-		console.log("second success");
+		var rows = $('#data-nasabah');
+		var html = "";
+		for(var nilai in data){
+			html += "<tr><td>"+data[nilai].cif+"</td><td>"+data[nilai].namaLengkap+"</td></tr>";
+		}
+		rows.html(html);
 	}).fail(function() {
-		console.log("error");
-	}).always(function() {
-		console.log("finished");
+		console.log("Tidak dapat load data nasabah");
 	});
-}
-
-/* button handler click */
-function clickMe() {
-	console.log("Button di click!");
 }

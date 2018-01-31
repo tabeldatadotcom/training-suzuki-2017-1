@@ -22,24 +22,34 @@
 <title>Data Nasabah</title>
 </head>
 <body class="container">
-	<h2>Form Data Nasabah</h2>
 
+	<h2>Data Nasabah</h2>
+	<table class="table table-striped table-bordered ">
+		<thead>
+			<tr>
+				<td>CIF</td>
+				<td>Nama Lengkap</td>
+			</tr>
+		</thead>
+		<tbody id="data-nasabah">
+
+		</tbody>
+	</table>
+
+	<h2>Form Data Nasabah</h2>
 	<div class="row">
 		<form id="form-register" class="container">
 			<div class="form-group">
-				<label for="cif">Usernmane</label> <input class="form-control"
-					type="text" id="cif" required name="cif"
-					placeholder="Input your CIF">
+				<label for="cif">Usernmane</label> 
+				<input class="form-control" type="text" id="cif" required name="cif" placeholder="Input your CIF">
 			</div>
 			<div class="form-group">
-				<label for="namaLengkap">Nama Lengkap</label> <input
-					class="form-control" type="text" id="namaLengkap" required
-					name="namaLengkap" placeholder="Input your fullname">
+				<label for="namaLengkap">Nama Lengkap</label> 
+				<input class="form-control" type="text" id="namaLengkap" required name="namaLengkap" placeholder="Input your fullname">
 			</div>
 			<div class="form-group">
 				<label for="namaLengkap">Password</label> <input
-					class="form-control" type="password" id="password" required
-					name="password" placeholder="Input your secret password">
+					class="form-control" type="password" id="password" required name="password" placeholder="Input your secret password">
 			</div>
 			<div class="form-group">
 				<button type="submit" id="submitButton" class="btn btn-primary">Kirim</button>

@@ -2,13 +2,6 @@ $('h2').text("Halo dunia");
 
 $(document).ready(function() {
 	console.log("Jquery works");
-	// $('#listenerClick').click(function() {
-	// alert("Button click!");
-	// });
-	//
-	// $('#getNasabah').click(function() {
-	// loadData();
-	// });
 
 	$("form").on("submit", function(event) {
 		event.preventDefault();
@@ -25,6 +18,7 @@ $(document).ready(function() {
 			data : JSON.stringify(value),
 			success : function() {
 				console.log("Data berhasil dikirim ke server!");
+				$("#form-register")[0].reset();
 			},
 			error: function(){
 				alert("Tidak dapat menyimpan ke server!");

@@ -19,8 +19,7 @@
 	href='<c:url value="/static/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css"></c:url>'>
 
 <!-- include motor.js -->
-<script type="text/javascript"
-	src='<c:url value="/motor.js"></c:url>'></script>
+<script type="text/javascript" src='<c:url value="/motor.js"></c:url>'></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Data Nasabah</title>
 </head>

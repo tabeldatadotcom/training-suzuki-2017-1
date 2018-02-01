@@ -1,9 +1,27 @@
 <html>
 	<head>
-		<script type="application/javascript" src="main.js"></script>
+		<script type="application/javascript" src="jquery-3.2.1.min.js"></script>
+		<!--  <script type="application/javascript" src="main.js"></script> -->
+		<script type="application/javascript" src="jquery.js"></script>
 		<title>Belajar Javascript</title>
 	</head>
 	<body>
 		Halaman Kosong
+		
+		<button id="buttonKirim">Kirim</button>
+		<form>
+			<div>
+				<label>Nama Lengkap</label>
+				<input type="text" required name="namaLengkap" id="namaId">
+			</div>
+			<div>
+				<label>Nama Perusahaan</label>
+				<input type="text" min="10" name= "namaAplikasi" id="appId">
+			</div>
+			<div>
+				<button type="submit">Kirim Proposal</button>
+				<button type="reset">Reset</button>
+			</div>
+		</form>
 	</body>
 </html>

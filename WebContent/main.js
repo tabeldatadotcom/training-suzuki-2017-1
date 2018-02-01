@@ -89,3 +89,5 @@ do{
 	console.log("Saya minta maaf, menggunakan do-while");
 	i++;
 }while(i < 10);
+
+// ending perulangan

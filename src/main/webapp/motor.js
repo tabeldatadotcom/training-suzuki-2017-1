@@ -1,7 +1,12 @@
 $(document).ready(function() {
 	console.log("Jquery udah running");
 	$('#buttonKirim').on("click", function() {
-		console.log("Button di click");
+		$.get( "/jaxrs-example/api/motor/anak", function( data ) {
+		  console.log(data);
+//		  untuk isi field dari http get method
+		  $('#namaId').val(data.nama);
+		  $('#appId').val(data.aplikasi);
+		});
 	});
 	
 	$("form").on("submit", function(event) {

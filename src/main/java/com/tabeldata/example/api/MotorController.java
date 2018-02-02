@@ -1,5 +1,8 @@
 package com.tabeldata.example.api;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -43,6 +46,13 @@ public class MotorController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Motor postMotor(Motor motor) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(motor);
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
 		return motor;
 	}
 }

@@ -17,6 +17,24 @@ $(document).ready(function() {
 		var aplikasi = $('#appId').val();
 		
 		console.log("nilai dari nama lengkap dan aplikasi adalah "+ namaLengkap + " : "+ aplikasi);
+		var value = {
+				"nama" : namaLengkap,
+				"aplikasi" : aplikasi
+		}
+		$.ajax({
+			type : "POST",
+			contentType : "application/json; charset=utf-8",
+			url : "/jaxrs-example/api/motor/post",
+			data : JSON.stringify(value),
+			success : function() {
+				console.log("data berhasil dikirim")
+			},
+			error: function(){
+				alert("Tidak dapat menyimpan ke server!");
+			},
+			dataType : "json"
+		});
+		
 	});
 
 });
